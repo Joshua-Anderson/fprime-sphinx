@@ -131,7 +131,7 @@ bool constructApp(bool dump) {
 
 #if FW_PORT_TRACING
     Fw::PortBase::setTrace(false);
-#endif    
+#endif
 
     // Data access exception is a double bit error
     trap_registrar.register_trap_handle(0x09, fatalHandler);
@@ -150,9 +150,9 @@ bool constructApp(bool dump) {
 
     // Initialize the rate groups
     rateGroup1Comp.init(10,0);
-    
+
     rateGroup2Comp.init(10,1);
-    
+
     rateGroup3Comp.init(10,2);
 
     rateGroup4Comp.init(10,3);
@@ -165,7 +165,7 @@ bool constructApp(bool dump) {
 #endif
 
     eventLogger.init(2000,0);
-    
+
     sphinxTime.init(0);
 
     chanTlm.init(2000,0);
@@ -331,16 +331,11 @@ void go(void) {
     constructApp(false);
 
     // Start FPGA Driver
-    Os::InterruptLock ilocker;
-    FW_ASSERT(Os::TaskLock::lock() == 0);
-    ilocker.lock();
 #ifdef TGT_OS_TYPE_VXWORKS
     fpgaDriver.sphinx_time_rti_handlr((I32)&fpgaDriver);
 #else
     fpgaDriver.sphinx_time_rti_handlr((I64)&fpgaDriver);
 #endif
-    ilocker.unLock();
-    FW_ASSERT(Os::TaskLock::unLock() == 0);
 
     Os::Task::delay(10000);
 }

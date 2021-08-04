@@ -79,7 +79,7 @@ namespace App {
       U32 id;
       U32 percentage = 0;
       U32 number;
-      NATIVE_INT_TYPE status; 
+      NATIVE_INT_TYPE status;
       Fw::Time timeTag;
       Fw::LogBuffer args;
       m_fatal_task = Os::Task::getOsIdentifier();
@@ -360,7 +360,7 @@ namespace App {
             break;
     }
     //Serialize the arguments
-    
+
     //Fatal handler may not be up and running, force (re)init
     init_ocm_pointer();
     //Call the fatal handler
@@ -459,7 +459,6 @@ namespace App {
         //interrupt context is VERY stupid, so don't do that.
         #ifdef TGT_OS_TYPE_VXWORKS
             if (!intContext() && Os::Task::getOsIdentifier() != m_fatal_task) {
-                (void) taskUnlock(); //Prevent stupid
                 ::taskExit(1);
             }
         #endif

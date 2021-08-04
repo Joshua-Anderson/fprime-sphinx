@@ -15,7 +15,6 @@
 #include "GTestBase.hpp"
 #include "App/FSWInfo/FSWInfoComponentImpl.hpp"
 #include "Fw/ComFile/FileBuffer.hpp"
-#include "fprime-sphinx-drivers/Util/SphinxDrvReg.hpp"
 
 namespace App {
 
@@ -65,8 +64,8 @@ namespace App {
       //!
       void from_timeREL_handler(
           const NATIVE_INT_TYPE portNum, /*!< The port number*/
-          U32 SC_Time_Secs, 
-          U32 SC_Time_uSecs 
+          U32 SC_Time_Secs,
+          U32 SC_Time_uSecs
       );
 
       //! Handler for from_PingResponse
@@ -88,8 +87,8 @@ namespace App {
       //!
       void from_timeABS_handler(
           const NATIVE_INT_TYPE portNum, /*!< The port number*/
-          U32 SC_Time_Secs, 
-          U32 SC_Time_uSecs 
+          U32 SC_Time_Secs,
+          U32 SC_Time_uSecs
       );
 
     private:

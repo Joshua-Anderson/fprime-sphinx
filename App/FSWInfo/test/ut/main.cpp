@@ -3,7 +3,6 @@
 // ----------------------------------------------------------------------
 
 #include "Tester.hpp"
-#include <fprime-sphinx-drivers/Util/SphinxDrvReg.hpp>
 
 TEST(Test, Ping) {
     App::Tester tester;
